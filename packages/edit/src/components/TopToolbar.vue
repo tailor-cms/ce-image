@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>Hello from TopToolbar!</div>
 </template>
 
 <script setup lang="ts">

@@ -6,7 +6,7 @@
       variant="tonal"
       @click="handleFileImport"
     >
-      <VIcon class="mr-2">mdi-upload</VIcon>
+      <VIcon class="mr-2">mdi-image-plus-outline</VIcon>
       Upload image
     </VBtn>
     <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->

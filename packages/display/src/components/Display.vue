@@ -1,6 +1,11 @@
 <template>
   <div>
-    <VImg v-if="data.url" :src="data.url" class="mx-auto">
+    <VImg
+      v-if="data.url"
+      :alt="element.data.alt"
+      :src="data.url"
+      class="mx-auto"
+    >
       <template #placeholder>
         <div class="d-flex align-center justify-center fill-height">
           <VProgressCircular color="blue-grey-darken-3" indeterminate />

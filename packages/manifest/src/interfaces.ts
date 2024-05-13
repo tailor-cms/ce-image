@@ -1,5 +1,6 @@
 export interface ElementData {
   url?: string;
+  alt?: string;
 }
 
 export interface Element {

@@ -9,7 +9,7 @@
       Image placeholder
     </VSheet>
     <div v-else class="image-wrapper">
-      <VImg :src="element.data.url" class="mx-auto">
+      <VImg :alt="element.data.alt" :src="element.data.url" class="mx-auto">
         <template #placeholder>
           <div class="d-flex align-center justify-center fill-height">
             <VProgressCircular color="blue-grey-darken-3" indeterminate />

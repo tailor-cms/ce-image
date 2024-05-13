@@ -15,6 +15,7 @@ export const name = 'Image';
 // e.g. for simple counter component:
 export const initState: DataInitializer = (): ElementData => ({
   url: '',
+  alt: '',
 });
 
 // Can be loaded from package.json

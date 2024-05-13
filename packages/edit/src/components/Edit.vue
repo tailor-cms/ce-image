@@ -1,15 +1,13 @@
 <template>
   <div class="tce-image">
-    <ElementPlaceholder
+    <VSheet
       v-if="!element.data.url"
-      :dense="false"
-      :is-disabled="isDisabled"
-      :is-focused="isFocused"
-      active-icon="mdi-arrow-up"
-      active-placeholder="Use toolbar to upload the image"
-      icon="mdi-image-plus"
-      name="Image component"
-    />
+      class="d-flex justify-center align-center my-2 text-h6"
+      height="15.5rem"
+    >
+      <VIcon class="mr-2">mdi-image-outline</VIcon>
+      Image placeholder
+    </VSheet>
     <div v-else class="image-wrapper">
       <VImg :src="element.data.url" class="mx-auto">
         <template #placeholder>
@@ -24,9 +22,7 @@
 
 <script lang="ts" setup>
 import { defineEmits, defineProps } from 'vue';
-import { Element } from 'tce-manifest';
-
-import ElementPlaceholder from './EditPlaceholder.vue';
+import { Element } from '@tailor-cms/ce-image-manifest';
 
 defineEmits(['save']);
 defineProps<{

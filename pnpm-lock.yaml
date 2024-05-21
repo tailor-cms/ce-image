@@ -7,6 +7,19 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@tailor-cms/ce-image-display':
+        specifier: workspace:*
+        version: link:packages/display
+      '@tailor-cms/ce-image-edit':
+        specifier: workspace:*
+        version: link:packages/edit
+      '@tailor-cms/ce-image-manifest':
+        specifier: workspace:*
+        version: link:packages/manifest
+      '@tailor-cms/ce-image-server':
+        specifier: workspace:*
+        version: link:packages/server
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.1

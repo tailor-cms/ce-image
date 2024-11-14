@@ -31,10 +31,7 @@ const ui = {
 };
 
 export const mocks = {
-  displayContexts: [
-    { name: 'Test preset 1', data: { state: 'I have a value' } },
-    { name: 'Test preset 2', data: { state: 'I have a different value' } },
-  ],
+  displayContexts: [{ name: 'No selection', data: {} }],
 };
 
 const manifest: ElementManifest = {

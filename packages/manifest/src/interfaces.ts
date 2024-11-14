@@ -1,6 +1,7 @@
 export interface ElementData {
-  url?: string;
+  url: string | null;
   alt?: string;
+  assets: { url?: string };
 }
 
 export interface Element {

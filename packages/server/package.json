@@ -1,6 +1,6 @@
 {
   "name": "@tailor-cms/ce-image-server",
-  "description": "Tailor image element server runtime",
+  "description": "Tailor CMS image element server component",
   "author": "Studion <info@gostudion.com> (https://github.com/tailor-cms)",
   "type": "module",
   "version": "1.0.1",

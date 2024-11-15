@@ -1,6 +1,6 @@
 {
   "name": "@tailor-cms/ce-image-edit",
-  "description": "Tailor image element",
+  "description": "Tailor CMS image element authoring component",
   "author": "Studion <info@gostudion.com> (https://github.com/tailor-cms)",
   "type": "module",
   "version": "1.0.1",

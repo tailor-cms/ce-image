@@ -21,7 +21,7 @@
     "@changesets/cli": "^2.27.1",
     "@playwright/test": "1.41.1",
     "@tailor-cms/eslint-config": "0.0.2",
-    "@tailor-cms/tce-boot": "0.6.4",
+    "@tailor-cms/tce-boot": "0.6.5",
     "@tailor-cms/tce-display-runtime": "0.6.0",
     "@types/node": "^20.5.7",
     "concurrently": "^8.2.2",

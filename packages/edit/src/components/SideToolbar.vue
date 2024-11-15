@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import { defineEmits, defineProps, ref } from 'vue';
 import type { Element } from '@tailor-cms/ce-image-manifest';
+import { ref } from 'vue';
 
 const props = defineProps<{ element: Element }>();
 const emit = defineEmits(['save']);

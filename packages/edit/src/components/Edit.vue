@@ -22,7 +22,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, defineProps } from 'vue';
 import type { Element } from '@tailor-cms/ce-image-manifest';
 import { ElementPlaceholder } from '@tailor-cms/core-components';
 import manifest from '@tailor-cms/ce-image-manifest';

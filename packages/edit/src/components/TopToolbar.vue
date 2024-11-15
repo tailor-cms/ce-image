@@ -12,7 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineEmits, defineProps } from 'vue';
 import { AssetInput } from '@tailor-cms/core-components';
 import cloneDeep from 'lodash/cloneDeep';
 import type { Element } from '@tailor-cms/ce-image-manifest';

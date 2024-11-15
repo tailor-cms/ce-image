@@ -1,10 +1,10 @@
 {
   "name": "@tailor-cms/ce-image",
   "description": "Tailor image element",
-  "private": true,
-  "version": "1.0.0",
   "author": "Studion <info@gostudion.com> (https://github.com/tailor-cms)",
   "type": "module",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "concurrently 'pnpm boot:cek' 'pnpm boot:display' -n cek,display-runtime -c blue,cyan",
     "boot:cek": "cd ./node_modules/@tailor-cms/tce-boot && pnpm start",

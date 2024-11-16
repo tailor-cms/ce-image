@@ -8,6 +8,7 @@
       </template>
     </VImg>
     <VSheet
+      v-else
       class="d-flex justify-center align-center my-2 text-h6"
       height="15.5rem"
     >

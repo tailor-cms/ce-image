@@ -12,10 +12,10 @@ export const name = 'Image';
 
 // Function which inits element state (data property on the Content Element
 // entity)
-// e.g. for simple counter component:
 export const initState: DataInitializer = (): ElementData => ({
-  url: '',
+  url: null,
   alt: '',
+  assets: {},
 });
 
 // Can be loaded from package.json
@@ -30,21 +30,13 @@ const ui = {
   forceFullWidth: true,
 };
 
-export const mocks = {
-  displayContexts: [
-    { name: 'Test preset 1', data: { state: 'I have a value' } },
-    { name: 'Test preset 2', data: { state: 'I have a different value' } },
-  ],
-};
-
 const manifest: ElementManifest = {
   type,
-  version: '1.0',
+  version,
   name,
   ssr: false,
   initState,
   ui,
-  mocks,
 };
 
 export default manifest;

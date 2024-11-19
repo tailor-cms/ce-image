@@ -1,13 +1,14 @@
 <template>
   <div class="tce-image">
-    <VSheet
+    <ElementPlaceholder
       v-if="!element.data.url"
-      class="d-flex justify-center align-center my-2 text-h6"
-      height="15.5rem"
-    >
-      <VIcon class="mr-2">mdi-image-outline</VIcon>
-      Image placeholder
-    </VSheet>
+      :is-disabled="isDisabled"
+      :is-focused="isFocused"
+      :name="`${manifest.name} component`"
+      active-icon="mdi-arrow-up"
+      active-placeholder="Use toolbar to upload the image"
+      icon="mdi-image-plus"
+    />
     <div v-else class="image-wrapper">
       <VImg :alt="element.data.alt" :src="element.data.url" class="mx-auto">
         <template #placeholder>
@@ -21,8 +22,9 @@
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, defineProps } from 'vue';
-import { Element } from '@tailor-cms/ce-image-manifest';
+import type { Element } from '@tailor-cms/ce-image-manifest';
+import { ElementPlaceholder } from '@tailor-cms/core-components';
+import manifest from '@tailor-cms/ce-image-manifest';
 
 defineEmits(['save']);
 defineProps<{
@@ -31,3 +33,9 @@ defineProps<{
   isDisabled: boolean;
 }>();
 </script>
+
+<style lang="scss" scoped>
+.tce-image {
+  text-align: left;
+}
+</style>

@@ -1,39 +1,32 @@
 <template>
-  <div class="background-input-container d-flex align-center justify-center">
-    <VBtn
-      v-if="element.data.url"
-      color="blue-grey-darken-3"
-      variant="tonal"
-      @click="replace"
-    >
-      <VIcon class="mr-2">mdi-image-remove-outline</VIcon>
-      Replace image
-    </VBtn>
-    <UploadBtn v-else @upload="upload" />
+  <div class="d-flex align-center justify-center">
+    <AssetInput
+      :extensions="['.png', '.jpg', '.jpeg']"
+      :public-url="element.data.url"
+      :url="element.data.assets?.url"
+      class="mx-auto"
+      upload-label="Upload image"
+      @input="save"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineEmits, defineProps } from 'vue';
+import { AssetInput } from '@tailor-cms/core-components';
+import cloneDeep from 'lodash/cloneDeep';
 import type { Element } from '@tailor-cms/ce-image-manifest';
 
-import UploadBtn from './UploadBtn.vue';
-
 const props = defineProps<{ element: Element }>();
-const emit = defineEmits(['save', 'replace']);
+const emit = defineEmits(['save']);
 
-const upload = ({ url }: { key: string; url: string }) => {
-  emit('save', {
-    ...props.element.data,
-    assets: {
-      url,
-    },
+const save = ({ url, publicUrl }: { url: string; publicUrl: string }) => {
+  const assets = { url };
+  const elementData = Object.assign(cloneDeep(props.element.data), {
+    url: publicUrl,
+    assets,
   });
-};
-
-const replace = () => {
-  emit('save', {
-    assets: {},
-  });
+  emit('save', elementData);
 };
 </script>
+
+<style scoped></style>

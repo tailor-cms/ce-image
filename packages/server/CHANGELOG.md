@@ -1,5 +1,11 @@
 # @tailor-cms/ce-image-server
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated package to use Tailor core components.
+
 ## 1.0.0
 
 ### Major Changes

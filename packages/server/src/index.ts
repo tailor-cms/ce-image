@@ -1,5 +1,5 @@
 import type { HookServices, ServerRuntime } from '@tailor-cms/cek-common';
-import { initState, mocks, type } from '@tailor-cms/ce-image-manifest';
+import { initState, type } from '@tailor-cms/ce-image-manifest';
 import type { Element } from '@tailor-cms/ce-image-manifest';
 
 // Detect if hooks are running in CEK (used for mocking end-system runtime)
@@ -77,7 +77,6 @@ export default {
   afterRetrieve,
   onUserInteraction,
   beforeDisplay,
-  mocks,
 };
 
-export { type, initState, mocks };
+export { type, initState };

@@ -1,5 +1,11 @@
 # @tailor-cms/ce-image-display
 
+## 1.0.2
+
+### Patch Changes
+
+- Remove prefix from element type.
+
 ## 1.0.1
 
 ### Patch Changes

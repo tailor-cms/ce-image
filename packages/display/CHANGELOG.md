@@ -1,5 +1,11 @@
 # @tailor-cms/ce-image-display
 
+## 1.0.3
+
+### Patch Changes
+
+- Revert externalizing core-components.
+
 ## 1.0.2
 
 ### Patch Changes

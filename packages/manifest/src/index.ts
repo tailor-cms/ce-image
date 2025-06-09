@@ -27,7 +27,7 @@ const ui = {
   icon: 'mdi-image',
   // Does element support only full width or can be used within layouts
   // (e.g. 50/50 layout)
-  forceFullWidth: true,
+  forceFullWidth: false,
 };
 
 const manifest: ElementManifest = {

@@ -1,5 +1,11 @@
 # @tailor-cms/ce-image-server
 
+## 1.0.4
+
+### Patch Changes
+
+- Bumped to the latest tce-boot and core-components version and migrated code accordingly.
+
 ## 1.0.3
 
 ### Patch Changes

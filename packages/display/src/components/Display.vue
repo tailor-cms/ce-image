@@ -1,6 +1,11 @@
 <template>
   <div class="tce-image-root">
-    <VImg v-if="data.url" :alt="data.alt" :src="data.url" class="mx-auto">
+    <VImg
+      v-if="element.data.url"
+      :alt="element.data.alt"
+      :src="element.data.url"
+      class="mx-auto"
+    >
       <template #placeholder>
         <div class="d-flex align-center justify-center fill-height">
           <VProgressCircular color="blue-grey-darken-3" indeterminate />
@@ -19,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { ElementData } from '@tailor-cms/ce-image-manifest';
+import { Element } from '@tailor-cms/ce-image-manifest';
 
-defineProps<{ id: number; data: ElementData; userState: any }>();
+defineProps<{ element: Element; userState: any }>();
 </script>

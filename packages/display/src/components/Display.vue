@@ -28,3 +28,8 @@ import { Element } from '@tailor-cms/ce-image-manifest';
 
 defineProps<{ element: Element; userState: any }>();
 </script>
+
+<style scoped>
+.tce-image-root {
+}
+</style>

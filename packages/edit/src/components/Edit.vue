@@ -2,7 +2,7 @@
   <div class="tce-image">
     <ElementPlaceholder
       v-if="!element.data.url"
-      :is-disabled="isDisabled"
+      :is-disabled="isReadonly"
       :is-focused="isFocused"
       :name="`${manifest.name} component`"
       active-icon="mdi-arrow-up"
@@ -26,12 +26,13 @@ import type { Element } from '@tailor-cms/ce-image-manifest';
 import { ElementPlaceholder } from '@tailor-cms/core-components';
 import manifest from '@tailor-cms/ce-image-manifest';
 
-defineEmits(['save']);
 defineProps<{
   element: Element;
+  isDragged: boolean;
   isFocused: boolean;
-  isDisabled: boolean;
+  isReadonly: boolean;
 }>();
+defineEmits(['save']);
 </script>
 
 <style lang="scss" scoped>

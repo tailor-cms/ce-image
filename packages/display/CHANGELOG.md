@@ -1,5 +1,11 @@
 # @tailor-cms/ce-image-display
 
+## 1.1.0
+
+### Minor Changes
+
+- Migrates package to the latest tce-boot version, adds AI config and devcontainers. Updates dependencies to the latest versions.
+
 ## 1.0.4
 
 ### Patch Changes

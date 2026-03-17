@@ -14,7 +14,7 @@
     </VImg>
     <VSheet
       v-else
-      class="d-flex justify-center align-center my-2 text-h6"
+      class="d-flex justify-center align-center my-2 text-title-large"
       height="15.5rem"
     >
       <VIcon class="mr-2">mdi-image-outline</VIcon>

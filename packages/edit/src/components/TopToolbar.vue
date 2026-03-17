@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex align-center justify-center">
-    <AssetInput
+    <TailorAssetInput
       :extensions="['.png', '.jpg', '.jpeg']"
       :public-url="element.data.url"
       :url="element.data.assets?.url"
@@ -12,7 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { AssetInput } from '@tailor-cms/core-components';
 import { cloneDeep } from 'lodash-es';
 import type { Element } from '@tailor-cms/ce-image-manifest';
 

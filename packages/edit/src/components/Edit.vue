@@ -23,8 +23,9 @@
 
 <script lang="ts" setup>
 import type { Element } from '@tailor-cms/ce-image-manifest';
-import { ElementPlaceholder } from '@tailor-cms/core-components';
 import manifest from '@tailor-cms/ce-image-manifest';
+
+import ElementPlaceholder from './ElementPlaceholder.vue';
 
 defineProps<{
   element: Element;

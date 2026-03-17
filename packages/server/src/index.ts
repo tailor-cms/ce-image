@@ -1,4 +1,8 @@
-import type { HookServices, ServerRuntime } from '@tailor-cms/cek-common';
+import type {
+  BeforeDisplayHook,
+  ElementHook,
+  OnUserInteractionHook,
+} from '@tailor-cms/cek-common';
 import { initState, type } from '@tailor-cms/ce-image-manifest';
 import type { Element } from '@tailor-cms/ce-image-manifest';
 
@@ -7,39 +11,31 @@ const IS_CEK = process.env.CEK_RUNTIME;
 // Don't use in production, use only when IS_CEK=true
 const USER_STATE: any = {};
 
-export function beforeSave(element: Element, _services: HookServices) {
+export const beforeSave: ElementHook<Element> = (element) => {
   return element;
-}
+};
 
-export function afterSave(element: Element, _services: HookServices) {
+export const afterSave: ElementHook<Element> = (element) => {
   return element;
-}
+};
 
-export function afterLoaded(
-  element: Element,
-  _services: HookServices,
-  _runtime: ServerRuntime,
-) {
+export const afterLoaded: ElementHook<Element> = (element, _services, _runtime) => {
   return element;
-}
+};
 
-export function afterRetrieve(
-  element: Element,
-  _services: HookServices,
-  _runtime: ServerRuntime,
-) {
+export const afterRetrieve: ElementHook<Element> = (element, _services, _runtime) => {
   return element;
-}
+};
 
-export function beforeDisplay(_element: Element, context: any) {
+export const beforeDisplay: BeforeDisplayHook<Element> = (_element, context) => {
   return { ...context, ...USER_STATE };
-}
+};
 
-export function onUserInteraction(
-  _element: Element,
-  context: any,
-  payload: any,
-): any {
+export const onUserInteraction: OnUserInteractionHook<Element> = (
+  _element,
+  context,
+  payload,
+) => {
   // Simulate user state update within CEK
   if (IS_CEK) {
     // Only for showcase purposes
@@ -51,7 +47,7 @@ export function onUserInteraction(
   // Can have arbitrary return value (interpreted by target system)
   // FE is updated if updateDisplayState is true
   return { updateDisplayState: true };
-}
+};
 
 export const hookMap = new Map(
   Object.entries({

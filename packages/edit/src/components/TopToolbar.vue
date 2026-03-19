@@ -12,10 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Element } from '@tailor-cms/ce-image-manifest';
+import type { Element, ElementData } from '@tailor-cms/ce-image-manifest';
 
 const props = defineProps<{ element: Element }>();
-const emit = defineEmits(['save']);
+const emit = defineEmits<{ save: [data: ElementData] }>();
 
 const save = ({ url, publicUrl }: { url: string; publicUrl: string }) => {
   const assets = { url };

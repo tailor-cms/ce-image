@@ -31,7 +31,6 @@ defineProps<{
   isFocused: boolean;
   isReadonly: boolean;
 }>();
-defineEmits(['save']);
 </script>
 
 <style lang="scss" scoped>

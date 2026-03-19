@@ -46,10 +46,10 @@
 </template>
 
 <script setup lang="ts">
-import { Element } from '@tailor-cms/ce-image-manifest';
+import { type Element } from '@tailor-cms/ce-image-manifest';
 import { ref } from 'vue';
 
-defineProps<{ element: Element; userState: any }>();
+defineProps<{ element: Element }>();
 
 const isZoomed = ref(false);
 </script>

@@ -12,11 +12,11 @@
 </template>
 
 <script setup lang="ts">
-import type { Element } from '@tailor-cms/ce-image-manifest';
+import type { Element, ElementData } from '@tailor-cms/ce-image-manifest';
 import { ref } from 'vue';
 
 const props = defineProps<{ element: Element }>();
-const emit = defineEmits(['save']);
+const emit = defineEmits<{ save: [data: ElementData] }>();
 
 const altText = ref(props.element.data.alt || '');
 

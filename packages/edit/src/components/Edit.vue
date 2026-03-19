@@ -1,6 +1,6 @@
 <template>
   <div class="tce-image">
-    <ElementPlaceholder
+    <TailorElementPlaceholder
       v-if="!element.data.url"
       :is-disabled="isReadonly"
       :is-focused="isFocused"
@@ -24,8 +24,6 @@
 <script lang="ts" setup>
 import type { Element } from '@tailor-cms/ce-image-manifest';
 import manifest from '@tailor-cms/ce-image-manifest';
-
-import ElementPlaceholder from './ElementPlaceholder.vue';
 
 defineProps<{
   element: Element;

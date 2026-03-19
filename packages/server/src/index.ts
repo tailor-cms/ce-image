@@ -19,15 +19,26 @@ export const afterSave: ElementHook<Element> = (element) => {
   return element;
 };
 
-export const afterLoaded: ElementHook<Element> = (element, _services, _runtime) => {
+export const afterLoaded: ElementHook<Element> = (
+  element,
+  _services,
+  _runtime,
+) => {
   return element;
 };
 
-export const afterRetrieve: ElementHook<Element> = (element, _services, _runtime) => {
+export const afterRetrieve: ElementHook<Element> = (
+  element,
+  _services,
+  _runtime,
+) => {
   return element;
 };
 
-export const beforeDisplay: BeforeDisplayHook<Element> = (_element, context) => {
+export const beforeDisplay: BeforeDisplayHook<Element> = (
+  _element,
+  context,
+) => {
   return { ...context, ...USER_STATE };
 };
 

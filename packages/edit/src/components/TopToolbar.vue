@@ -12,7 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { cloneDeep } from 'lodash-es';
 import type { Element } from '@tailor-cms/ce-image-manifest';
 
 const props = defineProps<{ element: Element }>();
@@ -20,11 +19,7 @@ const emit = defineEmits(['save']);
 
 const save = ({ url, publicUrl }: { url: string; publicUrl: string }) => {
   const assets = { url };
-  const elementData = Object.assign(cloneDeep(props.element.data), {
-    url: publicUrl,
-    assets,
-  });
-  emit('save', elementData);
+  emit('save', { ...props.element.data, url: publicUrl, assets });
 };
 </script>
 

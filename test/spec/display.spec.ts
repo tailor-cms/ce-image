@@ -37,19 +37,21 @@ test.describe('When image is set', () => {
     await expect(display.image.locator('img')).toHaveAttribute('alt', ALT_TEXT);
   });
 
-  test('Opens zoom overlay on image click', async ({ page }) => {
+  test('Opens image viewer on click', async ({ page }) => {
     const display = new Display(page);
-    await display.image.click();
-    await expect(display.zoomedImage).toBeVisible();
-    await expect(display.zoomedImage).toHaveAttribute('alt', ALT_TEXT);
+    await display.image.hover();
+    await display.viewerBtn.click();
+    await expect(display.viewerImage).toBeVisible();
+    await expect(display.viewerImage).toHaveAttribute('alt', ALT_TEXT);
   });
 
-  test('Closes zoom overlay via close button', async ({ page }) => {
+  test('Closes image viewer via close button', async ({ page }) => {
     const display = new Display(page);
-    await display.image.click();
-    await expect(display.zoomedImage).toBeVisible();
+    await display.image.hover();
+    await display.viewerBtn.click();
+    await expect(display.viewerImage).toBeVisible();
     await display.closeBtn.click();
-    await expect(display.zoomedImage).not.toBeVisible();
+    await expect(display.viewerImage).not.toBeVisible();
   });
 });
 

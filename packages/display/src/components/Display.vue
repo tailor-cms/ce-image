@@ -54,7 +54,7 @@
       class="d-flex justify-center align-center my-2 text-title-large"
       height="15.5rem"
     >
-      <VIcon class="mr-2">mdi-image-outline</VIcon>
+      <VIcon icon="mdi-image-outline" start />
       Image placeholder
     </VSheet>
   </div>

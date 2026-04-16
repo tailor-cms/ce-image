@@ -22,6 +22,10 @@ const ui = {
 
 export const isEmpty = (data: ElementData): boolean => !data.url;
 
+export const mocks = {
+  displayContexts: [{ name: 'Default', data: {} }] as const,
+};
+
 const manifest: ElementManifest = {
   type,
   version,

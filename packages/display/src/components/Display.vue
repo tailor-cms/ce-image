@@ -42,8 +42,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Element } from '@tailor-cms/ce-image-manifest';
 import { computed, useTemplateRef } from 'vue';
+import type { Element } from '@tailor-cms/ce-image-manifest';
 import type { VBtn } from 'vuetify/components';
 
 const props = defineProps<{ element: Element }>();

@@ -4,7 +4,7 @@ import { config as dotenvConfig } from 'dotenv';
 dotenvConfig();
 
 if (!process.env.PREVIEW_RUNTIME_URL)
-  process.env.PREVIEW_RUNTIME_URL = 'http://localhost:8080';
+  process.env.PREVIEW_RUNTIME_URL = 'http://localhost:8001';
 
 /**
  * See https://playwright.dev/docs/test-configuration.

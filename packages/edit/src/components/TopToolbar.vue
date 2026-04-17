@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import type { Element, ElementData } from '@tailor-cms/ce-image-manifest';
 
-const EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'avif'];
+const EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif'];
 
 const props = defineProps<{ element: Element }>();
 const emit = defineEmits<{ save: [data: ElementData] }>();

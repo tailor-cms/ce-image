@@ -5,17 +5,17 @@ import { pom } from '@tailor-cms/cek-e2e';
 export class Edit extends pom.EditPanel {
   readonly imageWrapper: Locator;
   readonly placeholder: Locator;
-  readonly uploadInput: Locator;
   readonly altTextInput: Locator;
+  readonly fileInput: pom.FileInput;
 
   constructor(page: Page) {
     super(page);
     this.imageWrapper = this.editor.locator('.image-wrapper');
     this.placeholder = this.editor.getByText('Image component');
-    this.uploadInput = this.topToolbar.getByText('Upload image');
     this.altTextInput = this.sideToolbar.getByRole('textbox', {
       name: 'Image alt text',
     });
+    this.fileInput = new pom.FileInput(this.el);
   }
 
   async fillAltText(text: string) {

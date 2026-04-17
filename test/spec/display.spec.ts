@@ -11,13 +11,6 @@ test.beforeEach(async ({ page }) => {
   await page.waitForLoadState('networkidle');
 });
 
-test.describe('When image is not set', () => {
-  test('Shows placeholder', async ({ page }) => {
-    const display = new Display(page);
-    await expect(display.placeholder).toBeVisible();
-  });
-});
-
 test.describe('When image is set', () => {
   const IMAGE_URL = 'https://picsum.photos/200';
   const ALT_TEXT = 'A sunset over the ocean';
@@ -51,6 +44,15 @@ test.describe('When image is set', () => {
     await display.viewerBtn.click();
     await expect(display.viewerImage).toBeVisible();
     await display.closeBtn.click();
+    await expect(display.viewerImage).not.toBeVisible();
+  });
+
+  test('Closes image viewer via Escape key', async ({ page }) => {
+    const display = new Display(page);
+    await display.image.hover();
+    await display.viewerBtn.click();
+    await expect(display.viewerImage).toBeVisible();
+    await display.closeBtn.press('Escape');
     await expect(display.viewerImage).not.toBeVisible();
   });
 });

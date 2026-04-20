@@ -11,6 +11,14 @@ test.beforeEach(async ({ page }) => {
   await page.waitForLoadState('networkidle');
 });
 
+test.describe('When image is not set', () => {
+  test('Shows placeholder', async ({ page }) => {
+    const display = new Display(page);
+    await expect(display.placeholder).toBeVisible();
+    await expect(display.image).not.toBeVisible();
+  });
+});
+
 test.describe('When image is set', () => {
   const IMAGE_URL = 'https://picsum.photos/200';
   const ALT_TEXT = 'A sunset over the ocean';

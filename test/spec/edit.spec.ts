@@ -98,6 +98,32 @@ test.describe('When image is set', () => {
   });
 });
 
+test.describe('Readonly mode', () => {
+  test('Keeps placeholder visible but hides upload prompt', async ({
+    page,
+  }) => {
+    const edit = new Edit(page);
+    await edit.setReadonly();
+    await edit.focus();
+    await expect(edit.placeholder).toBeVisible();
+    await expect(
+      edit.el.getByText('Use toolbar to upload the image'),
+    ).not.toBeVisible();
+  });
+
+  test('Keeps image visible when set', async ({ page }) => {
+    await elementClient.update(ELEMENT_ID, {
+      url: IMAGE_URL,
+      alt: 'Sunset',
+      assets: {},
+    });
+    await page.reload({ waitUntil: 'networkidle' });
+    const edit = new Edit(page);
+    await edit.setReadonly();
+    await expect(edit.imageWrapper).toBeVisible();
+  });
+});
+
 test.afterAll(async () => {
   await elementClient.reset(ELEMENT_ID);
 });

@@ -123,7 +123,3 @@ test.describe('Readonly mode', () => {
     await expect(edit.imageWrapper).toBeVisible();
   });
 });
-
-test.afterAll(async () => {
-  await elementClient.reset(ELEMENT_ID);
-});

@@ -7,6 +7,7 @@ const ELEMENT_ID = 'test-image-display';
 
 test.beforeEach(async ({ page }) => {
   await elementClient.reset(ELEMENT_ID);
+  await elementClient.resetState(ELEMENT_ID);
   await page.goto(`/?id=${ELEMENT_ID}`);
   await page.waitForLoadState('networkidle');
 });
@@ -63,8 +64,4 @@ test.describe('When image is set', () => {
     await display.closeBtn.press('Escape');
     await expect(display.viewerImage).not.toBeVisible();
   });
-});
-
-test.afterAll(async () => {
-  await elementClient.reset(ELEMENT_ID);
 });

@@ -3,7 +3,6 @@
   "description": "Tailor CMS image element",
   "author": "Studion <info@gostudion.com> (https://github.com/tailor-cms)",
   "type": "module",
-  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "pnpm boot:cek",

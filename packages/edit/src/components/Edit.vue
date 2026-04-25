@@ -1,6 +1,6 @@
 <template>
   <div class="tce-image">
-    <ElementPlaceholder
+    <TailorElementPlaceholder
       v-if="!element.data.url"
       :is-disabled="isReadonly"
       :is-focused="isFocused"
@@ -23,7 +23,6 @@
 
 <script lang="ts" setup>
 import type { Element } from '@tailor-cms/ce-image-manifest';
-import { ElementPlaceholder } from '@tailor-cms/core-components';
 import manifest from '@tailor-cms/ce-image-manifest';
 
 defineProps<{
@@ -32,7 +31,6 @@ defineProps<{
   isFocused: boolean;
   isReadonly: boolean;
 }>();
-defineEmits(['save']);
 </script>
 
 <style lang="scss" scoped>

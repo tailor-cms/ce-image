@@ -13,12 +13,20 @@
 
 <script setup lang="ts">
 import type { Element, ElementData } from '@tailor-cms/ce-image-manifest';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 const props = defineProps<{ element: Element }>();
 const emit = defineEmits<{ save: [data: ElementData] }>();
 
 const altText = ref(props.element.data.alt || '');
+
+watch(
+  () => props.element.data.alt,
+  (value = '') => {
+    if (value === altText.value) return;
+    altText.value = value;
+  },
+);
 
 const onFocusChange = (focused: boolean) => {
   if (focused) return;

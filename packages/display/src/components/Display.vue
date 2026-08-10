@@ -12,7 +12,13 @@
           :aria-label="`Open image viewer: ${element.data.alt || 'image'}`"
           class="image-viewer-activator"
         >
-          <VImg :alt="element.data.alt" :src="url" class="mx-auto" rounded="lg">
+          <VImg
+            :alt="element.data.alt"
+            :src="url"
+            class="mx-auto"
+            rounded="lg"
+            width="auto"
+          >
             <template #placeholder>
               <div class="d-flex align-center justify-center fill-height">
                 <VProgressCircular

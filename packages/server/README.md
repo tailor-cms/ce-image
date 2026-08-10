@@ -1,13 +1,13 @@
-# @tailor-cms/ce-image-display
+# @tailor-cms/ce-image-server
 
-End-user component for the **Image** content element in [Tailor CMS](https://github.com/tailor-cms/author).
+Server-side module for the **Image** content element in [Tailor CMS](https://github.com/tailor-cms/author).
 
-Renders the element as learners see it in published content.
+Provides the server half of the element: state initialisation, lifecycle hooks and any AI configuration, registered by the Tailor server runtime.
 
 ## Installation
 
 ```sh
-npm install @tailor-cms/ce-image-display
+npm install @tailor-cms/ce-image-server
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ registry rather than imported directly, but the package can be consumed on its
 own:
 
 ```ts
-import { Display } from '@tailor-cms/ce-image-display';
+import serverModule from '@tailor-cms/ce-image-server';
 ```
 
 ## Element

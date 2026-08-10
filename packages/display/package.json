@@ -3,7 +3,7 @@
   "description": "Tailor CMS image element end-user component",
   "author": "Studion <info@gostudion.com> (https://github.com/tailor-cms)",
   "type": "module",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -29,18 +29,18 @@
   },
   "devDependencies": {
     "@tailor-cms/ce-image-manifest": "workspace:*",
-    "@tailor-cms/eslint-config": "^2.0.1",
-    "@vitejs/plugin-vue": "^6.0.6",
+    "@tailor-cms/eslint-config": "2.0.3",
+    "@vitejs/plugin-vue": "^6.0.8",
     "typescript": "^6.0.3",
-    "vite": "^8.0.10",
+    "vite": "^8.2.1",
     "vite-plugin-lib-inject-css": "^2.2.2",
-    "vue-tsc": "^3.2.7",
-    "vuetify": "^4.0.6"
+    "vue-tsc": "^3.3.9",
+    "vuetify": "^4.1.8"
   },
   "publishConfig": {
     "access": "public"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=26"
   }
 }

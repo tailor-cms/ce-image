@@ -61,6 +61,9 @@ test.describe('When image is set', () => {
     await display.image.hover();
     await display.viewerBtn.click();
     await expect(display.viewerImage).toBeVisible();
+    // Dialog focuses the close button once its enter transition finishes;
+    // pressing Escape before that races the overlay's activation.
+    await expect(display.closeBtn).toBeFocused();
     await display.closeBtn.press('Escape');
     await expect(display.viewerImage).not.toBeVisible();
   });

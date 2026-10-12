@@ -14,52 +14,39 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('When image is not set', () => {
-  test('Shows placeholder', async ({ page }) => {
+  test('Shows dropzone as empty state', async ({ page }) => {
     const edit = new Edit(page);
-    await expect(edit.placeholder).toBeVisible();
+    await expect(edit.fileInput.dropzone).toBeVisible();
+    await expect(edit.placeholder).not.toBeVisible();
+    await expect(edit.image).not.toBeVisible();
   });
 
   test('Can import image via URL', async ({ page }) => {
     const edit = new Edit(page);
     await edit.focus();
-    await edit.fileInput.open();
+    await edit.fileInput.openUrlFromDropzone();
     await edit.fileInput.importUrl(IMAGE_URL);
-    await edit.imageWrapper.scrollIntoViewIfNeeded();
-    await expect(edit.imageWrapper).toBeVisible();
+    await expect(edit.image).toBeVisible();
+    await expect(edit.image.locator('img')).toHaveAttribute('src', IMAGE_URL);
   });
 
-  test('Can upload image file', async ({ page }) => {
+  test('Can upload image file via dropzone', async ({ page }) => {
     const edit = new Edit(page);
     await edit.focus();
-    await edit.fileInput.open();
-    await edit.fileInput.upload(IMAGE);
-    await edit.imageWrapper.scrollIntoViewIfNeeded();
-    await expect(edit.imageWrapper).toBeVisible();
-    // Remove button only renders when file-key (assets.url) is set —
+    await edit.fileInput.dropzoneUpload(IMAGE);
+    await expect(edit.image).toBeVisible();
+    await expect(edit.fileInput.dropzone).not.toBeVisible();
+    // File row only renders when file-key (assets.url) is set —
     // proves onUpload mapped the storage key, not just publicUrl.
-    await expect(edit.fileInput.removeBtn).toBeVisible();
+    await edit.fileInput.expectFile('test-image.jpg');
   });
 
   test('Rejects non-image file', async ({ page }) => {
     const edit = new Edit(page);
     await edit.focus();
-    await edit.fileInput.open();
-    await edit.fileInput.upload(DOCUMENT);
-    await edit.fileInput.cancel();
-    await expect(edit.placeholder).toBeVisible();
-    await expect(edit.imageWrapper).not.toBeVisible();
-  });
-
-  test('Returns to empty state after upload and delete', async ({ page }) => {
-    const edit = new Edit(page);
-    await edit.focus();
-    await edit.fileInput.open();
-    await edit.fileInput.upload(IMAGE);
-    await edit.imageWrapper.scrollIntoViewIfNeeded();
-    await expect(edit.imageWrapper).toBeVisible();
-    await edit.fileInput.remove();
-    await expect(edit.imageWrapper).not.toBeVisible();
-    await expect(edit.placeholder).toBeVisible();
+    await edit.fileInput.dropzoneUpload(DOCUMENT);
+    await expect(edit.fileInput.dropzone).toBeVisible();
+    await expect(edit.image).not.toBeVisible();
   });
 });
 
@@ -75,7 +62,16 @@ test.describe('When image is set', () => {
 
   test('Shows image', async ({ page }) => {
     const edit = new Edit(page);
-    await expect(edit.imageWrapper).toBeVisible();
+    await expect(edit.image).toBeVisible();
+    await expect(edit.image.locator('img')).toHaveAttribute('src', IMAGE_URL);
+  });
+
+  test('Can remove image', async ({ page }) => {
+    const edit = new Edit(page);
+    await edit.focus();
+    await edit.fileInput.removeFromRow();
+    await expect(edit.image).not.toBeVisible();
+    await expect(edit.fileInput.dropzone).toBeVisible();
   });
 
   test('Can enter and save alt text', async ({ page }) => {
@@ -91,27 +87,25 @@ test.describe('When image is set', () => {
   test('Preserves alt text when image is replaced', async ({ page }) => {
     const edit = new Edit(page);
     await edit.focus();
-    await edit.fileInput.open();
+    await edit.fileInput.replace();
     await edit.fileInput.upload(IMAGE);
-    await expect(edit.imageWrapper).toBeVisible();
+    await edit.fileInput.expectFile('test-image.jpg');
     await expect(edit.altTextInput).toHaveValue('Existing alt text');
+    await expect(edit.editor.getByAltText('Existing alt text')).toBeVisible();
   });
 });
 
 test.describe('Readonly mode', () => {
-  test('Keeps placeholder visible but hides upload prompt', async ({
-    page,
-  }) => {
+  test('Shows placeholder instead of dropzone when empty', async ({ page }) => {
     const edit = new Edit(page);
     await edit.setReadonly();
-    await edit.focus();
     await expect(edit.placeholder).toBeVisible();
-    await expect(
-      edit.el.getByText('Use toolbar to upload the image'),
-    ).not.toBeVisible();
+    await expect(edit.fileInput.dropzone).not.toBeVisible();
   });
 
-  test('Keeps image visible when set', async ({ page }) => {
+  test('Keeps image visible and hides file actions when set', async ({
+    page,
+  }) => {
     await elementClient.update(ELEMENT_ID, {
       url: IMAGE_URL,
       alt: 'Sunset',
@@ -120,6 +114,8 @@ test.describe('Readonly mode', () => {
     await page.reload({ waitUntil: 'networkidle' });
     const edit = new Edit(page);
     await edit.setReadonly();
-    await expect(edit.imageWrapper).toBeVisible();
+    await edit.focus();
+    await expect(edit.image).toBeVisible();
+    await expect(edit.fileInput.replaceBtn).not.toBeVisible();
   });
 });

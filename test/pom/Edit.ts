@@ -3,14 +3,14 @@ import type { Page } from '@playwright/test';
 import { pom } from '@tailor-cms/cek-e2e';
 
 export class Edit extends pom.EditPanel {
-  readonly imageWrapper: Locator;
+  readonly image: Locator;
   readonly placeholder: Locator;
   readonly altTextInput: Locator;
   readonly fileInput: pom.FileInput;
 
   constructor(page: Page) {
     super(page);
-    this.imageWrapper = this.editor.locator('.image-wrapper');
+    this.image = this.editor.locator('.tce-image .file-input-media .v-img');
     this.placeholder = this.editor.getByText('Image component');
     this.altTextInput = this.sideToolbar.getByRole('textbox', {
       name: 'Image alt text',
